@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { TeamName } from '$lib/types/TeamName.d';
+	import type { TeamName } from '$lib/types/on-the-run/TeamName.d';
 	import { MEMBERS } from '$lib/members';
 	
 	import TwitterLinkIcon from '$lib/components/link-icon/TwitterLinkIcon.svelte';

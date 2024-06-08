@@ -1,4 +1,4 @@
-import type { Member } from "./types/Member"
+import type { Member } from "./types/on-the-run/Member"
 
 /**
  * メイン配信チャンネル

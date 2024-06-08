@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { TeamName } from "$lib/types/TeamName";
+    import type { TeamName } from "$lib/types/on-the-run/TeamName";
     import Team from "$lib/components/on-the-run/Team.svelte";
 	import { onMount } from "svelte";
     import axios from 'redaxios';
