@@ -12,5 +12,7 @@
 	<NavHamburger />
 	<NavUl {activeUrl}>
 		<NavLi href="/">Home</NavLi>
+		<NavLi href="/teams">Teams</NavLi>
+		<NavLi href="/archives">Archives</NavLi>
 	</NavUl>
 </Navbar>
