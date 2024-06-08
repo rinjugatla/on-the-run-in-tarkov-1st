@@ -36,7 +36,12 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@twurple/api": "^7.1.0",
+		"@twurple/auth": "^7.1.0",
 		"flowbite": "^2.3.0",
-		"flowbite-svelte": "^0.46.1"
+		"flowbite-svelte": "^0.46.1",
+		"flowbite-svelte-icons": "^1.6.1",
+		"redaxios": "^0.5.1",
+		"svelte-coreui-icons": "^1.0.3"
 	}
 }
