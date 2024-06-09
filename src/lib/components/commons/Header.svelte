@@ -5,7 +5,7 @@
 	$: activeUrl = $page.url.pathname;
 </script>
 
-<Navbar class="bg-hibiscus_cup_theme_header bg-gray-900">
+<Navbar class="bg-gray-900">
 	<NavBrand href="/">
         <img src="/logo.jpg" alt="logo" class="h-14">
 	</NavBrand>
