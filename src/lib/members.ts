@@ -1,9 +1,5 @@
 import type { Member } from "./types/on-the-run/Member"
 
-/**
- * メイン配信チャンネル
- */
-export const MAIN_STREAM_TWITCH_ID = '255849926';
 
 export const MEMBERS: Member[] = [
     { team: '本配信', name: 'ギルテックス', twitch: 'gilltex', twitch_id: '255849926', twitter: 'GillTeX_Twitch', archive_ids: [2154772051], digest_ids: [], clip_ids: [] },
@@ -22,3 +18,8 @@ export const MEMBERS: Member[] = [
     { team: '青', name: 'みやまる', twitch: 'miyamarumaru', twitch_id: '216686393', twitter: 'Toricha___n', archive_ids: [2154770656], digest_ids: [], clip_ids: [] },
     { team: '青', name: 'ゲームする女', twitch: 'sumi_oy', twitch_id: '782185458', twitter: 'game_onna', archive_ids: [2154769117], digest_ids: [], clip_ids: [] },
 ]
+
+/**
+ * メイン配信チャンネル
+ */
+export const MAIN_MEMBER = MEMBERS[0];
