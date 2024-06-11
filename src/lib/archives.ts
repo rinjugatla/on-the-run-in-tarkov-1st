@@ -87,6 +87,27 @@ export const ARCHIVES = [
         "diff": -1331
     },
     {
+        "id": "2154763488",
+        "stream_id": "41322698503",
+        "user_id": "439505716",
+        "user_login": "morinchuuu",
+        "user_name": "もりんちゅ",
+        "title": "タルコフ逃走中【 主催 : @gilltex 】",
+        "description": "",
+        "created_at": "2024-05-25T09:28:24Z",
+        "published_at": "2024-05-25T09:28:24Z",
+        "url": "https://www.twitch.tv/videos/2154763488",
+        "thumbnail_url": "https://static-cdn.jtvnw.net/cf_vods/d3vd9lfkzbru3h/9acaad212587f1ec1675_morinchuuu_41322698503_1716629299//thumb/thumb0-%{width}x%{height}.jpg",
+        "viewable": "public",
+        "view_count": 730,
+        "language": "ja",
+        "type": "archive",
+        "duration": "4h12m54s",
+        "duration_sec": 15174,
+        "muted_segments": null,
+        "diff": -1438
+    },
+    {
         "id": "2154764476",
         "stream_id": "41322703911",
         "user_id": "927242788",
