@@ -3,7 +3,7 @@
     import GithubLinkIcon from '$lib/components/link-icon/GithubLinkIcon.svelte';
 
     const twitter_name = 'rin_jugatla';
-	const github_name = 'rinjugatla/twitch-clip-search';
+	const github_name = 'rinjugatla/on-the-run-in-tarkov-1st';
 </script>
 
 <div class="w-full absolute left-0 bottom-0 bg-gray-900">
