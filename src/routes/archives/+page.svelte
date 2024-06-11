@@ -69,7 +69,6 @@
     let mainDuration = 0;
     const handleDuration = (event: CustomEvent<number | null>) => {
         mainDuration = event.detail ?? 0;
-		console.log(mainDuration);
     }
 
 	/**
@@ -92,7 +91,7 @@
 			const videoId = archive.id;
 			const isShow = watchVideoIds[videoId];
 			if(!isShow){ continue; }
-			
+
 			// 本配信と各種配信の開始時間の差分を計算
 			const archiveProgressSec = mainProgressSec - archive.diff;
 			const isBeforeStart = archiveProgressSec < 0;
