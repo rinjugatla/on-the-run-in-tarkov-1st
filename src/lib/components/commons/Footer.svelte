@@ -9,9 +9,14 @@
 <div class="w-full absolute left-0 bottom-0 bg-gray-900">
 	<div class="m-5">
         <div class="flex justify-center items-center relative">
-            <span class="block text-xs text-white text-center">
-                2024 rin_jugatla
-            </span>
+            <div class="block text-xs text-white text-center">
+                <div class="my-1">
+                    ロゴや動画はイベント運営チームの著作物です
+                </div>
+                <div>
+                    2024 rin_jugatla
+                </div>
+            </div>
             <div class="absolute right-0">
                 <TwitterLinkIcon name={twitter_name} />
 				<GithubLinkIcon name={github_name} />
