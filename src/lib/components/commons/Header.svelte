@@ -8,6 +8,7 @@
 <Navbar class="bg-gray-900">
 	<NavBrand href="/">
         <img src="/logo.jpg" alt="logo" class="h-14">
+		<span class=" text-xl ml-3">fan</span>
 	</NavBrand>
 	<NavHamburger />
 	<NavUl {activeUrl}>
