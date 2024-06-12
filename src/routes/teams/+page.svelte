@@ -6,6 +6,7 @@
 	import type { TwitchUser } from '$lib/types/twitch/TwitchUser';
 	import { MEMBERS } from '$lib/members';
 	import Loading from '$lib/components/commons/Loading.svelte';
+	import { initTwitchApiClient } from "$lib/common";
 
     /**
      * チーム名
@@ -32,6 +33,7 @@
     }
 
     onMount(async () => {
+        await initTwitchApiClient();
         let users = await fetchUsers();
         for (const team of teamNames) {
             const teamStreamerIds = MEMBERS.
