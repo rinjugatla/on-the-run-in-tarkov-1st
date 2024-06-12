@@ -7,6 +7,7 @@ export const initTwitchApiClientServer = async () => {
     testText.subscribe(async (value) => {
         if(!value){
             testText.set("init");
+            console.log(PRIVATE_CLIENT_ID, PRIVATE_CLIENT_SECRET);
         }
     })
 
@@ -17,6 +18,10 @@ export const initTwitchApiClientServer = async () => {
             await provider.getAppAccessToken();
 
             const client = new ApiClient({ authProvider: provider });
+            console.log(client);
+            const data = await client.users.getUserById("682441785");
+            console.log(data?.displayName);
+
             apiClient.set(client);
             console.info("init twitch api client");
         }
