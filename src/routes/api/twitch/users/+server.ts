@@ -4,8 +4,8 @@ import { get } from 'svelte/store';
 
 export async function POST({request}): Promise<Response> {
     console.log(request);
-    const isSelfRequest = request.headers.get('sec-fetch-site') === 'same-origin';
-    if (!isSelfRequest){ return json(new Response()); }
+    // const isSelfRequest = request.headers.get('sec-fetch-site') === 'same-origin';
+    // if (!isSelfRequest){ return json(new Response()); }
 
     const client = get(apiClient);
     console.log(client);
