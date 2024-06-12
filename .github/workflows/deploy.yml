@@ -5,6 +5,10 @@ on:
   pull_request:
     branches: main
 
+env:
+  PRIVATE_CLIENT_ID: ${{ secrets.PRIVATE_CLIENT_ID }}
+  PRIVATE_CLIENT_SECRET: ${{ secrets.PRIVATE_CLIENT_SECRET }}
+
 jobs:
   deploy:
     name: Deploy
