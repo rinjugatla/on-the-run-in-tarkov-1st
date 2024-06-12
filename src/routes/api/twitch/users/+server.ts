@@ -8,13 +8,13 @@ export async function POST({request}): Promise<Response> {
     // if (!isSelfRequest){ return json(new Response()); }
 
     const client = get(apiClient);
-    console.log(client);
+    if(!client){ return new Response("Invalid twitch client"); }
 
     const { twitch_ids } = await request.json();
-    console.log(twitch_ids);
+    if(!twitch_ids){ return new Response("Invalid params");  }
+    if(!client.users){ return new Response("Not found users in twitch client"); }
 
     const response = await client.users.getUsersByIds(twitch_ids);
-    console.log(response);
     const users =response.map(user => ({
         id: user.id,
         name: user.name,
