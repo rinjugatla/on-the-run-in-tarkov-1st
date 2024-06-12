@@ -1,9 +1,15 @@
 import { PRIVATE_CLIENT_ID, PRIVATE_CLIENT_SECRET } from '$env/static/private';
-import { apiClient } from '$lib/store.server';
+import { apiClient, testText } from '$lib/store.server';
 import { ApiClient } from '@twurple/api';
 import { RefreshingAuthProvider } from '@twurple/auth';
 
 export const initTwitchApiClientServer = async () => {
+    testText.subscribe(async (value) => {
+        if(!value){
+            testText.set("init");
+        }
+    })
+
     // TwitchAPI初期化
     apiClient.subscribe(async (value) => {
         if (!value) {

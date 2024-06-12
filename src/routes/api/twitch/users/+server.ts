@@ -1,5 +1,5 @@
 import { initTwitchApiClientServer } from '$lib/common.server';
-import { apiClient } from '$lib/store.server';
+import { apiClient, testText } from '$lib/store.server';
 import { json } from '@sveltejs/kit';
 import { get } from 'svelte/store';
 
@@ -10,7 +10,8 @@ export async function POST({request}): Promise<Response> {
     await initTwitchApiClientServer();
 
     const client = get(apiClient);
-    if(!client){ return new Response("Invalid twitch client"); }
+    const text = get(testText);
+    if(!client){ return new Response(`Invalid twitch client ${text}`); }
 
     const { twitch_ids } = await request.json();
     if(!twitch_ids){ return new Response("Invalid params");  }
