@@ -96,7 +96,6 @@
 			const archiveProgressSec = mainProgressSec - archive.diff;
 			const isBeforeStart = archiveProgressSec < 0;
 			const isAfterEnd = archiveProgressSec > archive.duration_sec;
-			console.log(isBeforeStart, isAfterEnd, archiveProgressSec, archive.duration_sec);
 			if (isBeforeStart)
 			{
 				playerRefs[videoId].seekTo(parseFloat(String(0)));
