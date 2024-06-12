@@ -143,6 +143,7 @@
     <!-- <Button color="yellow" on:click={() => (playerRefs[MAIN_MEMBER.archive_ids[0]].seekTo(parseFloat(String(0.5))))}>本配信に同期</Button> -->
 	<Button color="yellow" on:click={syncProgress}>本配信に同期</Button>
 	<Button on:click={() => (isShowSidemenu = false)}>配信を追加</Button>
+	<div class="m-2 text-white text-xs">※本配信に同期しない場合は数回ボタンを押してください。</div>
 </div>
 <Drawer
 	placement="right"
