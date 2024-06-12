@@ -1,17 +1,12 @@
-import { initTwitchApiClientServer } from '$lib/common.server';
-import { apiClient, testText } from '$lib/store.server';
+import { twitchApiClient } from '$lib/common.server';
 import { json } from '@sveltejs/kit';
-import { get } from 'svelte/store';
 
 export async function POST({request}): Promise<Response> {
     // const isSelfRequest = request.headers.get('sec-fetch-site') === 'same-origin';
     // if (!isSelfRequest){ return json(new Response()); }
-
-    await initTwitchApiClientServer();
-
-    const client = get(apiClient);
-    const text = get(testText);
-    if(!client){ return new Response(`Invalid twitch client ${text}`); }
+    
+    const client = await twitchApiClient();
+    if(!client){ return new Response(`Invalid twitch client`); }
 
     const { twitch_ids } = await request.json();
     if(!twitch_ids){ return new Response("Invalid params");  }

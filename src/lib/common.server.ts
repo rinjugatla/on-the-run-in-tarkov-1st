@@ -27,3 +27,18 @@ export const initTwitchApiClientServer = async () => {
         }
     })
 }
+
+/**
+ * 完全新規でクライアントを作成
+ * 
+ * 1リクエストで1クライアントを作るので効率が悪いが、Storeからクライアントを呼び出せないようなので回避策として追加
+ * 
+ * @returns Twitch APIクライアント
+ */
+export const twitchApiClient = async () => {
+    const provider = new RefreshingAuthProvider({ clientId: PRIVATE_CLIENT_ID, clientSecret: PRIVATE_CLIENT_SECRET });
+    await provider.getAppAccessToken();
+
+    const client = new ApiClient({ authProvider: provider });
+    return client;
+}
