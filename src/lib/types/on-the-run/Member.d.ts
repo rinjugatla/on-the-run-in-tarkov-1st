@@ -10,6 +10,12 @@ export type Member = {
      */
     name: string;
     /**
+     * Twitch Icon Url
+     * 
+     * これはAPIから取得したほうがいいがAPIライブラリがうまく動作しないので一時的にハードコードで対応
+     */
+    twitch_icon_url: string;
+    /**
      * Twitch ID(string)
      */
     twitch: string;
