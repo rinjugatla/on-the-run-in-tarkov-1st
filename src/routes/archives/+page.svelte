@@ -25,6 +25,18 @@
         loadedSeconds?: number;
     }
     
+	/**
+	 * サイドバードロップダウンの展開状態
+	 * 
+	 * 他の配信を追加しやすいように初期値で展開状態とする
+	 */
+	let teamSidebarDropdownOpen: {[key in TeamName]: boolean} = {
+		"本配信": true,
+		"赤": true,
+		"緑": true,
+		"青": true,
+	}
+
 	let isShowSidemenu = true;
 	let transitionParams = {
 		x: 320,
@@ -178,7 +190,7 @@
 							</Checkbox>
 						{:else}
 							<SidebarGroup>
-								<SidebarDropdownWrapper label="{teamName}チーム">
+								<SidebarDropdownWrapper label="{teamName}チーム" bind:isOpen={teamSidebarDropdownOpen[teamName]}>
 									<svelte:fragment slot="icon">
 										<UsersGroupSolid
 											class="h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"

@@ -1,45 +1,17 @@
 <script lang="ts">
 	import type { TeamName } from '$lib/types/on-the-run/TeamName.d';
 	import { MEMBERS } from '$lib/members';
-	
 	import TwitterLinkIcon from '$lib/components/link-icon/TwitterLinkIcon.svelte';
 	import TwitchLinkIcon from '$lib/components/link-icon/TwitchLinkIcon.svelte';
-	import type { TwitchUser } from '$lib/types/twitch/TwitchUser';
-	
+
+	/**
+	 * チーム名
+	 */
 	export let teamName: TeamName;
-	export let twitchUsers: TwitchUser[];
-
 	/**
-	 * 順序を保証したTwitchUser情報
+	 * チームメンバ
 	 */
-	let orderdTwitchUsers: TwitchUser[];
-	/**
-	 * APIの問い合わせ状況によってユーザ情報の順序が一定ではないので、並び替え
-	*/
-	$: {
-		const members = MEMBERS.filter(member => member.team === teamName);
-		const orderd: TwitchUser[] = [];
-		for (const member of members) {
-			const twitchUser = twitchUsers.filter(user => user.id === member.twitch_id)[0];
-			orderd.push(twitchUser);
-		}
-		orderdTwitchUsers = orderd;
-	}
-	
-
-	$: teamInfo = MEMBERS.filter(info => info.team === teamName)[0];
-
-	/**
-	 * Twitch IDからTwitter IDを特定
-	 * @param twitchId
-	 */
-	const twitterId = (twitchId: string) => {
-		const infos = MEMBERS.filter(member => member.twitch_id === twitchId);
-
-		const info = infos[0];
-		const twitterId = info.twitter;
-		return twitterId;
-	}
+	const members = MEMBERS.filter(member => member.team === teamName);
 </script>
 
 <div class="mx-auto my-5 max-w-2xl">
@@ -51,15 +23,15 @@
 			class:text-shadow-blue={teamName == "青"}
 			>{teamName}{teamName == "本配信" ? "" : "チーム"}</span>
 		<div class="flex justify-center">
-			{#each orderdTwitchUsers as member}
+			{#each members as member}
 			<div class="m-2">
-				<img class="rounded-full" src="{member.profilePictureUrl}" alt="{member.displayName}">
+				<img class="rounded-full" src="{member.twitch_icon_url}" alt="{member.name}">
 				<div class="my-2 text-center font-bold sm:text-lg">
-					{member.displayName}
+					{member.name}
 				</div>
 				<div class="flex justify-center sm:gap-10">
 					<TwitchLinkIcon name={member.name} />
-					<TwitterLinkIcon name={twitterId(member.id)} dark={true}/>	
+					<TwitterLinkIcon name={member.twitter} dark={true}/>	
 				</div>
 			</div>
 			{/each}
