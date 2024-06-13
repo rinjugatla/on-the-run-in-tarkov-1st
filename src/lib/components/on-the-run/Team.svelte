@@ -30,7 +30,7 @@
 					{member.name}
 				</div>
 				<div class="flex justify-center sm:gap-10">
-					<TwitchLinkIcon name={member.name} />
+					<TwitchLinkIcon name={member.twitch} />
 					<TwitterLinkIcon name={member.twitter} dark={true}/>	
 				</div>
 			</div>
