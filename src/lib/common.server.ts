@@ -36,9 +36,13 @@ export const initTwitchApiClientServer = async () => {
  * @returns Twitch APIクライアント
  */
 export const twitchApiClient = async () => {
-    const provider = new RefreshingAuthProvider({ clientId: PRIVATE_CLIENT_ID, clientSecret: PRIVATE_CLIENT_SECRET });
-    await provider.getAppAccessToken();
+    try {
+        const provider = new RefreshingAuthProvider({ clientId: PRIVATE_CLIENT_ID, clientSecret: PRIVATE_CLIENT_SECRET });
+        await provider.getAppAccessToken();
 
-    const client = new ApiClient({ authProvider: provider });
-    return client;
+        const client = new ApiClient({ authProvider: provider });
+        return client;
+    } catch (error) {
+        throw error;
+    }
 }
