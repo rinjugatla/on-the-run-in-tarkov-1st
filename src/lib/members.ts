@@ -3,6 +3,8 @@ import type { Member } from "./types/on-the-run/Member"
 
 export const MEMBERS: Member[] = [
     { team: '本配信', name: 'ギルテックス', twitch_icon_url: 'https://static-cdn.jtvnw.net/jtv_user_pictures/cd454bb0-7bbb-4f5d-a0f0-1888dfbd762d-profile_image-300x300.png', twitch: 'gilltex', twitch_id: '255849926', twitter: 'GillTeX_Twitch', archive_ids: [2154772051], digest_ids: [], clip_ids: [] },
+    { team: '本配信', name: 'みずいろ兵長', twitch_icon_url: 'https://static-cdn.jtvnw.net/jtv_user_pictures/82d1574a-00c1-4a98-a443-7a2e2a50c72f-profile_image-300x300.png', twitch: 'mizuiroch', twitch_id: '689749428', twitter: 'mizu1ro55', archive_ids: [], digest_ids: [], clip_ids: [] },
+    { team: '本配信', name: 'しゅーたー', twitch_icon_url: 'https://static-cdn.jtvnw.net/jtv_user_pictures/54730a92-148c-4105-a520-9600b146d359-profile_image-300x300.png', twitch: 'shootingmoon', twitch_id: '125575465', twitter: 'shooting_moon07', archive_ids: [], digest_ids: [], clip_ids: [] },
 
     { team: '赤', name: 'かきゅう', twitch_icon_url: 'https://static-cdn.jtvnw.net/jtv_user_pictures/39b0b7b7-2448-4edf-8f48-b84d29f0e31b-profile_image-300x300.png', twitch: 'kakyu_ttv', twitch_id: '520092504', twitter: 'xkakyux', archive_ids: [2154766988], digest_ids: [], clip_ids: [] },
     { team: '赤', name: '蒼音カノン', twitch_icon_url: 'https://static-cdn.jtvnw.net/jtv_user_pictures/84a95805-643a-4263-a742-a00dc48ae06c-profile_image-300x300.png', twitch: 'aone_kanon', twitch_id: '682441785', twitter: 'aone_kanon', archive_ids: [2154766397], digest_ids: [], clip_ids: [] },

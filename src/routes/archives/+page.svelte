@@ -181,13 +181,15 @@
 					{#if teamMembers}
 						{#if teamName == '本配信'}
 							{@const member = teamMembers[0]}
-                            {@const videoId = member.archive_ids[0]}
-							<Checkbox bind:checked={watchVideoIds[videoId]} value={videoId}>
-								<VideoCameraSolid
-									class="h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-								/>
-								{member.name}
-							</Checkbox>
+							{#if member.archive_ids.length > 0}
+								{@const videoId = member.archive_ids[0]}
+								<Checkbox bind:checked={watchVideoIds[videoId]} value={videoId}>
+									<VideoCameraSolid
+										class="h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+									/>
+									{member.name}
+								</Checkbox>
+							{/if}
 						{:else}
 							<SidebarGroup>
 								<SidebarDropdownWrapper label="{teamName}チーム" bind:isOpen={teamSidebarDropdownOpen[teamName]}>
@@ -217,40 +219,42 @@
 
 <div class="flex flex-wrap justify-center sm:gap-2">
     {#each MEMBERS as member}
-        {@const videoId = member.archive_ids[0]}
-        {@const showViewer = watchVideoIds[videoId]}
-        {@const isMainVideo = member.team === "本配信"}
-        {#if showViewer}
-			<div class="aspect-video sm:w-2/5" 
-			class:main-team={isMainVideo}
-			class:red-team={member.team === "赤"}
-			class:green-team={member.team === "緑"}
-			class:blue-team={member.team === "青"}
-			>
-            {#if isMainVideo}
-                <SveltePlayer
-                    url="https://www.twitch.tv/videos/{videoId}"
-                    controls={true}
-                    bind:this={playerRefs[videoId]}
-					bind:playing={playingVideoIds[videoId]}
-                    on:progress={handleProgress}
-                    on:duration={handleDuration}
-					on:pause={() => playingVideoIds[videoId] = false}
-					on:play={() => playingVideoIds[videoId] = true}
-                />
-            {:else}
-                <SveltePlayer
-                    url="https://www.twitch.tv/videos/{videoId}"
-                    controls={true}
-					bind:this={playerRefs[videoId]}
-					bind:playing={playingVideoIds[videoId]}
-					on:pause={() => playingVideoIds[videoId] = false}
-					on:play={() => playingVideoIds[videoId] = true}
-                />
-            
-            {/if}
-			</div>
-        {/if}
+		{#if member.archive_ids.length > 0}
+			{@const videoId = member.archive_ids[0]}
+			{@const showViewer = watchVideoIds[videoId]}
+			{@const isMainVideo = member.team === "本配信"}
+			{#if showViewer}
+				<div class="aspect-video sm:w-2/5" 
+				class:main-team={isMainVideo}
+				class:red-team={member.team === "赤"}
+				class:green-team={member.team === "緑"}
+				class:blue-team={member.team === "青"}
+				>
+				{#if isMainVideo}
+					<SveltePlayer
+						url="https://www.twitch.tv/videos/{videoId}"
+						controls={true}
+						bind:this={playerRefs[videoId]}
+						bind:playing={playingVideoIds[videoId]}
+						on:progress={handleProgress}
+						on:duration={handleDuration}
+						on:pause={() => playingVideoIds[videoId] = false}
+						on:play={() => playingVideoIds[videoId] = true}
+					/>
+				{:else}
+					<SveltePlayer
+						url="https://www.twitch.tv/videos/{videoId}"
+						controls={true}
+						bind:this={playerRefs[videoId]}
+						bind:playing={playingVideoIds[videoId]}
+						on:pause={() => playingVideoIds[videoId] = false}
+						on:play={() => playingVideoIds[videoId] = true}
+					/>
+				
+				{/if}
+				</div>
+			{/if}
+		{/if}
     {/each}
 </div>
 
