@@ -17,8 +17,10 @@
     <div class="m-2 text-white text-xs">※配信中に一部ルールが変更されています。</div>
 </div>
 
-{#each images as image}
-<div class="m-5">
-    <img src={image.path} title={image.title} alt={image.title}>
+<div class="grid place-items-center place-content-center sm:grid-cols-2">
+    {#each images as image}
+        <div class="m-5">
+            <img src={image.path} title={image.title} alt={image.title}>
+        </div>
+    {/each}
 </div>
-{/each}
